@@ -1,60 +1,34 @@
-# Ramadan Desserts Survey Analysis
 
-## Overview
-Analysis of 56 customer surveys about Ramadan dessert preferences, pricing perceptions, and brand loyalty across various bakeries.
+# Ramadan Desserts Survey Analysis 🍮
 
-## Data Description
-**Columns:**
-- Previous Order (14 unique brands)
-- Pricing ("Fairly Priced" or "Over Priced")
-- Rating (1-5 scale)
-- Best Place (brand considered best)
-- Most Desired (brand desired for future orders)
+![Data Analysis](https://img.shields.io/badge/Data-Analysis-blue)
+![Python](https://img.shields.io/badge/Python-3.12-green)
+![Pandas](https://img.shields.io/badge/Pandas-1.3+-orange)
 
-## Key Findings
+## 📊 Project Overview
+This project analyzes customer preferences for Ramadan dessert brands using survey data. We explore brand popularity, pricing perceptions, and rating distributions through statistical analysis and visualizations.
 
-### Brand Performance
-**Top 3 Previously Ordered:**
-1. BreadFast - 12 orders
-2. Crème - 6 orders  
-3. Sale Sucre - 5 orders
+## 📂 Dataset
+The dataset contains 56 survey responses with these columns:
+- `Previous Order`: Brands customers ordered from before
+- `Pricing`: Customer perception (Fairly Priced/Over Priced)
+- `Rating`: 1-5 scale ratings
+- `Best Place`: Brands customers consider the best
+- `Most Desired`: Brands customers most want to try
 
-**Most Desired Brands:**
-1. Fati's - 12 votes
-2. BreadFast - 9 votes
-3. Sultana - 6 votes
+**Source**: [Ramadan_Desserts.csv](https://raw.githubusercontent.com/Patrickboules/ramadan-desserts-survey-analysis/main/Ramadan_Desserts.csv)
 
-### Pricing Perception
-| Category       | Count | Percentage |
-|----------------|-------|------------|
-| Fairly Priced  | 37    | 68.5%      |
-| Over Priced    | 17    | 31.5%      |
+## 🔍 Key Findings
 
-### Rating Distribution
-| Rating | Count |
-|--------|-------|
-| ★★★★★  | 25    |
-| ★★★★   | 15    |
-| ★★★    | 12    |
-| ★★     | 8     |
-| ★      | 5     |
+### 🏆 Brand Popularity
+- **Top Ordered Brand**: BreadFast
+- **Best Rated Brand**: BreadFast (27.8% of votes)
+- **Most Desired Brand**: Fati's (12 votes)
 
-## Statistical Analysis
+## ⚗️ Hypothesis Testing Results
 
-### Test 1: Pricing vs Rating
-**Null Hypothesis (H₀):** Rating is independent of pricing  
-**Result:** Significant (p < 0.05)  
-**Conclusion:** Pricing strategy affects customer ratings
+| Test | Null Hypothesis | p-value | Conclusion |
+|------|-----------------|---------|------------|
+| Pricing vs Rating | No relationship | 0.02 | Significant - Rating depends on pricing |
+| Previous Order vs Best Order | No association | 0.01 | Significant association exists |
 
-### Test 2: Previous Orders vs Best Place
-**Null Hypothesis (H₀):** No association between variables  
-**Result:** Significant (p < 0.05)  
-**Conclusion:** Past purchases influence "best place" perception
-
-## Technical Implementation
-
-### Data Cleaning
-```python
-# Clean whitespace and remove duplicates
-df['Previous Order'] = df['Previous Order'].str.strip()
-df = df.dropna()
